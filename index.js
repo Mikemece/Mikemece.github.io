@@ -52,7 +52,7 @@ function pinwiFunction () {
         case 2: Pinwi.src = "pinwiBBF.png"; break;
         default: Pinwi.src = "pinwiAdulF.png"; break;
     }
-    if(currWidth <= 600) {
+    if(lvl<4) {
         Pinwi.style.width = (initWidth + exp*5+lvl) + "px"
         if(pinwiRect.y <= nameRect.y+nameRect.height){
             console.log("Collision!")
