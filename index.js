@@ -48,9 +48,9 @@ function pinwiFunction () {
     }
     switch (lvl){
         case 0: break
-        case 1: Pinwi.src="huevoRotoF.png"; break;
-        case 2: Pinwi.src = "pinwiBBF.png"; break;
-        default: Pinwi.src = "pinwiAdulF.png"; break;
+        case 1: Pinwi.src="./skin/huevoRotoF.png"; break;
+        case 2: Pinwi.src = "./skin/pinwiBBF.png"; break;
+        default: Pinwi.src = "./skin/pinwiAdulF.png"; break;
     }
     if(lvl<4) {
         Pinwi.style.width = (initWidth + exp*5+lvl) + "px"

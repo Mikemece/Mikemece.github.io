@@ -39,16 +39,9 @@ body{
     width: 10px;
 }
 
-#paja{
-    position: relative;
-    top: -65%;
-    width: 250%;
-    left: -74%;
-}
-
 img{
     position: relative;
-    top: -30%;
-    width: 120%;
-    left: -10%;
+    top: 0%;
+    width: 100%;
+    left: 0%;
 }
