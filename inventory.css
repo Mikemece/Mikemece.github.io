@@ -1,6 +1,7 @@
 body{
     background-color: black;
-    color: white ;
+    color: whitesmoke;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .grid-container{

@@ -50,6 +50,11 @@ img{
     right: 10px;
 }
 
+#log{
+    bottom: 10px;
+    left: 10px;
+}
+
 #pinwi{
     position: absolute;
     /* border: 1px solid red; */
