@@ -1,5 +1,4 @@
-const Tienda = document.getElementById("tienda")
-const Menu = document.getElementById("slidingmenu")
+const Inventario = document.getElementById("inventario")
 const Pinwi = document.getElementById("pinwi")
 const Name = document.getElementById("name")
 // const Name = document.getElementById("name")
@@ -13,23 +12,6 @@ const nameRect = Name.getBoundingClientRect()
 var exp = 0
 var lvl = 0
 var initWidth = Pinwi.clientWidth
-// Name.addEventListener("animationiteration", ()=>{
-//     if (!pinwiclicked) {
-//         console.log("Iteration end!")
-//         Name.style.removeProperty("animation")
-//     }
-// })
-
-Tienda.addEventListener("click", () =>{
-    console.log("tienda clicked!")
-    if(clicked===0){
-    Menu.classList.remove("hidden")
-    clicked=1;
-}else{
-    Menu.classList.add("hidden")
-    clicked=0
-}
-}, false)
 
 Pinwi.addEventListener("click", pinwiFunction) 
 
@@ -53,13 +35,12 @@ function pinwiFunction () {
         default: Pinwi.src = "./skin/pinwiAdulF.png"; break;
     }
     if(lvl<4) {
-        Pinwi.style.width = (initWidth + exp*5+lvl) + "px"
+        Pinwi.style.width = (initWidth + exp*3+lvl) + "px"
         if(pinwiRect.y <= nameRect.y+nameRect.height){
             console.log("Collision!")
             Name.style.top = (Name.offsetTop - 1) + "px"
         }
     }
-
 
     console.log(nameRect.top)
     Lvl.innerHTML = "Nivel "+ lvl
@@ -71,7 +52,4 @@ function pinwiFunction () {
     // }else{
     //     pinwiclicked=0
     // } 
-        
-    
-    
     }

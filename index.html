@@ -4,157 +4,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-	<style type="text/css">
-		
-		body{
-			background-color: black;
-			overflow: hidden;
-			font-family: 'Press Start 2P', cursive;
-		}
+<link rel="stylesheet" href="./index.css" />
 
-		.container{
-			box-shadow: 0 0 15px 5px white;
-			background-image: url("https://64.media.tumblr.com/59fd3cd91939a427cac708b992cad301/tumblr_ohx2xpUsAJ1v1vxovo1_1280.gifv");
-			background-size: cover;
-			background-position: center;
-			top: 20px;
-			left: 20px;
-			right: 20px;
-			bottom: 20px;
-			margin: 0px;
-			position: absolute;
-			background-color: aqua;
-			border: 0px solid red;
-			border-radius: 10px;
-		}
-
-		.button{
-			position: absolute;
-			background-color: white;
-			margin: 5px;
-			padding: 10px;
-			padding-right: 20px;
-			padding-left: 20px;
-			display: inline-block;
-			border: 0px solid darkred;
-			border-radius: 10px;
-			font-size: 2.5vw;
-			color: black;
-			
-			box-shadow: 5px 5px 10px 5px black;
-		}
-
-		#juego{
-			top: 10px;
-			left: 10px;
-		}
-
-		#menu{
-			top: 10px;
-			right: 10px;
-		}
-
-		#tienda{
-			bottom: 10px;
-			left: 10px;
-		}
-
-		#inv{
-			bottom: 10px;
-			right: 10px;
-		}
-
-		#pinwi{
-			position: absolute;
-			/* border: 1px solid red; */
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		img{
-			width: 25vw;
-			transition: width 0.5s;
-		}
-
-		.menu{
-			/*opacity: 0 ;*/
-			position: absolute;
-			display: flex;
-			opacity: 1;
-			flex-direction: column;
-			align-items: center;
-			width: 90%;
-			height: 80%;
-			border: 0;
-			border-radius: 50px;
-			top: 50%;
-			left: 50%;
-			background-color: black;
-			color: white;
-			transition:  opacity 2s;
-			transform: translate(-50%, -50%);
-			/* transform: translate3d(0, 0, 0); */
-		}
-
-		.hidden{
-			/* transform:translate(100%, -50%); */
-			transition:  opacity 2s, visibility 2s;
-			visibility: hidden;
-			opacity: 0;
-		}
-
-		.options{
-			display: grid;
-			align-items: center;
-			justify-content: center;
-			height: 2rem;
-			margin: 1rem;
-			border-top: 1px solid white;
-			border-bottom: 1px solid white;
-			width: 100%;
-		}
-
-		#name{
-			position: absolute;
-			color: azure;
-			/* border: 1px solid red; */
-			font-size: 6.5vw;
-			left:50%;
-			top: 10% ;
-			transform:translate(-50%, 0) ;
-			transition: top 0.25s;
-			text-shadow: 0px 0px 20px black;
-			/* animation: sizing 1s ease-in-out 0s infinite alternate; */
-		}
-
-		@keyframes sizing {
-			from {font-size: 6.5vw;}
-			to {font-size: 8vw;}
-		}
-
-		#exp{
-			position: absolute;
-			color: yellow ;
-			font-size: 2rem;
-			bottom:35px;
-			left: 80%;
-			transform:translate(-50%, 0) ;
-			text-shadow: 0px 0px 10px black;
-		}
-
-		#lvl{
-			position: absolute;
-			color: white ;
-			font-size: 3rem;
-			bottom:50px;
-			left: 50%;
-			transform:translate(-50%, 0) ;
-			text-shadow: 0px 0px 10px black;
-		}
-
-
-	</style>
+<!-- <style type="text/css"> 
+	</style> -->
+	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PINWI</title>
@@ -167,8 +21,7 @@
 	<div class="exp" id="lvl">Nivel 0</div>
 	<div id="name">PÏNWÏ</div>
 	<a href="./inventory.html">
-	<div id="tienda" class="button">Tienda</div>
-	<div id="menu" class="button">Menu</div>
+	<div id="tienda" class="button">Inventario</div>
 	<div id="juego" class="button">Juego</div>	
 	</a>
 	<div id="img-container">
@@ -177,6 +30,5 @@
 </div>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="index.js"></script>
 </html>
