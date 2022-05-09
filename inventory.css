@@ -1,38 +1,65 @@
-body{
-    background-color: black;
-    color: whitesmoke;
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://64.media.tumblr.com/59fd3cd91939a427cac708b992cad301/tumblr_ohx2xpUsAJ1v1vxovo1_1280.gifv");
+    backdrop-filter: blur(5px);
+    background-size: cover;
     font-family: 'Press Start 2P', cursive;
+
 }
 
-.grid-container{
+/* para ponerle un fade negro al fondo */
+.nigg {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    position: absolute;
+    opacity: 0.4;
+    z-index: -5;
+}
+
+/* la caja amarilla que ordena las cajitas chicas */
+.grid-container {
     display: grid;
-    border: 4px solid red;
-    width: 80%;
+    border: 3px solid rgb(216, 195, 5);
+    box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    width: 85%;
     padding: 20px;
     margin: 50px auto;
     grid-gap: 20px;
     grid-template-columns: auto auto auto auto auto;
     justify-content: space-around;
+    border-radius: 10px;
 }
 
-.box{
+/* botones de compra */
+.box {
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     border: 2px solid white;
+    background-color: rgba(254, 254, 254, 0.183);
     width: 10vw;
     height: 10vw;
     text-align: center;
     transition: box-shadow 0.5s, background-color 0.5s;
+    border-radius: 10px;
 }
 
-.box:hover{
+.box:hover {
     background-color: rgb(67, 65, 67);
     box-shadow: whitesmoke 5px 5px 10px;
 }
 
-.back{
+/* la salida */
+.back {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -40,25 +67,27 @@ body{
     width: 10px;
 }
 
-.prize{
+/* texto del precio */
+.prize {
     position: relative;
     text-align: center;
     font-size: 10mm;
-    top:-45%;
+    top: -45%;
     color: gold;
     opacity: 0;
     transition: 0.5s;
 }
 
-.box:hover .prize{
+.box:hover .prize {
     opacity: 1;
 }
 
-.box:hover img{
-    opacity: 0.5;
+.box:hover img {
+    opacity: 0.3;
 }
 
-img{
+/* imagenes */
+img {
     position: relative;
     top: 15%;
     width: 100%;
