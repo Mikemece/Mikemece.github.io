@@ -1,104 +1,132 @@
-body{
-    background-color: black;
-    overflow: hidden;
+body {
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background: url("https://64.media.tumblr.com/59fd3cd91939a427cac708b992cad301/tumblr_ohx2xpUsAJ1v1vxovo1_1280.gifv");
+    background-size: cover;
     font-family: 'Press Start 2P', cursive;
 }
 
-img{
-    width: 25vw;
-    transition: width 0.5s;
+.container {
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
 }
 
-.container{
-    box-shadow: 0 0 15px 5px white;
-    background-image: url("https://64.media.tumblr.com/59fd3cd91939a427cac708b992cad301/tumblr_ohx2xpUsAJ1v1vxovo1_1280.gifv");
-    background-size: cover;
-    background-position: center;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    margin: 0px;
-    position: absolute;
-    background-color: aqua;
-    border: 0px solid red;
-    border-radius: 10px;
+.container,
+.form__input,
+.form__button {
+    font: 'Press Start 2P', cursive;
 }
 
-.button{
-    position: absolute;
-    background-color: white;
-    margin: 5px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    display: inline-block;
-    border: 0px solid darkred;
-    border-radius: 10px;
-    font-size: 2.5vw;
-    color: black;
-    box-shadow: 5px 5px 10px 5px black;
+.form--hidden {
+    display: none;
 }
 
-#juego{
-    top: 10px;
-    left: 10px;
+.form > *:first-child {
+    margin-top: 0;
 }
 
-#tienda{
-    top: 10px;
-    right: 10px;
+.form > *:last-child {
+    margin-bottom: 0;
 }
 
-#log{
-    bottom: 10px;
-    left: 10px;
+.form__title {
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-#pinwi{
-    position: absolute;
-    /* border: 1px solid red; */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.form__message {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-
-#name{
-    position: absolute;
-    color: azure;
-    /* border: 1px solid red; */
-    font-size: 6.5vw;
-    left:50%;
-    top: 10% ;
-    transform:translate(-50%, 0) ;
-    transition: top 0.25s;
-    text-shadow: 0px 0px 20px black;
-    /* animation: sizing 1s ease-in-out 0s infinite alternate; */
+.form__message--success {
+    color: var(--color-success);
 }
 
-#exp{
-    position: absolute;
-    color: yellow ;
-    font-size: 2rem;
-    bottom:35px;
-    left: 80%;
-    transform:translate(-50%, 0) ;
-    text-shadow: 0px 0px 10px black;
+.form__message--error {
+    color: var(--color-error);
 }
 
-#lvl{
-    position: absolute;
-    color: white ;
-    font-size: 3rem;
-    bottom:50px;
-    left: 50%;
-    transform:translate(-50%, 0) ;
-    text-shadow: 0px 0px 10px black;
+.form__input-group {
+    margin-bottom: 1rem;
 }
-/*
-@keyframes sizing {
-    from {font-size: 6.5vw;}
-    to {font-size: 8vw;}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+    
 }
-*/
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.form__input--error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form__input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+.form__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.form__button:hover {
+    background: var(--color-primary-dark);
+}
+
+.form__button:active {
+    transform: scale(0.98);
+}
+
+.form__text {
+    text-align: center;
+}
+
+.form__link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}

@@ -1,43 +1,55 @@
 <!DOCTYPE html>
-<html>
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./index.css" />
-
-<!-- <style type="text/css"> 
-	</style> -->
-	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./index.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PINWI</title>
+	<title>Log in / Sign up </title>
 	<link rel="icon" href="icono_black.jpeg">
-</head>
 <body>
-
-<div class="container">
-	<div class="exp" id="exp">0 EXP</div>
-	<div class="exp" id="lvl">Nivel 0</div>
-	<div id="name">PÏNWÏ</div>
-
-	<a href="./inventory.html">	
-		<div id="tienda" class="button">Inventario</div>
-	</a>
-
-	<a href="./juego.html">	
-		<div id="juego" class="button">Juego</div>
-	</a>
-	<a href="./login.html">	
-		<div id="log" class="button">login (PRUEBA)</div>
-	</a>
-
-
-	<div id="img-container">
-		<img src="./skin/huevoF.png" id="pinwi">
-	</div>
-</div>
-
+    <div class="container">
+        <form class="form" id="login">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" autofocus placeholder="Username or email">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button"  type="submit">Continue</button>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>
+        </form>
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="form__title">Create Account</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" autofocus placeholder="Email Address">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Confirm password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Continue</button>
+            <p class="form__text">
+                <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+            </p>
+        </form>
+    </div>
+    <script src="./index.js" type="module"></script>
 </body>
-<script type="text/javascript" src="index.js"></script>
-</html>

@@ -24,11 +24,11 @@ body{
     width: 10vw;
     height: 10vw;
     text-align: center;
-    transition: box-shadow 1s, background-color 1s;
+    transition: box-shadow 0.5s, background-color 0.5s;
 }
 
 .box:hover{
-    background-color: thistle;
+    background-color: rgb(67, 65, 67);
     box-shadow: whitesmoke 5px 5px 10px;
 }
 
@@ -40,9 +40,28 @@ body{
     width: 10px;
 }
 
+.prize{
+    position: relative;
+    text-align: center;
+    font-size: 10mm;
+    top:-45%;
+    color: gold;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.box:hover .prize{
+    opacity: 1;
+}
+
+.box:hover img{
+    opacity: 0.5;
+}
+
 img{
     position: relative;
-    top: 0%;
+    top: 15%;
     width: 100%;
     left: 0%;
+    transition: 0.5s;
 }
