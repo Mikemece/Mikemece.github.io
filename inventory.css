@@ -27,6 +27,8 @@ body {
 /* la caja amarilla que ordena las cajitas chicas */
 .grid-container {
     display: grid;
+    font-size: 35px;
+    color: yellow;
     border: 3px solid rgb(216, 195, 5);
     box-shadow: rgb(0, 0, 0) 0px 0px 20px;
     width: 85%;
