@@ -11,8 +11,10 @@ const money = document.getElementById("money")
 var exp = 0
 var lvl = 0
 var initWidth = Pinwi.clientWidth
-var mon = 0
-var cont=0
+var cont= 0
+
+var mon = sessionStorage.getItem("m")
+money.innerHTML= mon +"€"
 
 Pinwi.addEventListener("click", pinwiFunction) 
 d2.addEventListener("click", pinwiFunction) 

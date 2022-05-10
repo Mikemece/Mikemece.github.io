@@ -28,7 +28,7 @@ body {
 .grid-container {
     display: grid;
     font-size: 35px;
-    color: yellow;
+
     border: 3px solid rgb(216, 195, 5);
     box-shadow: rgb(0, 0, 0) 0px 0px 20px;
     width: 85%;
@@ -44,6 +44,7 @@ body {
 .box {
     display: flex;
     justify-content: center;
+    color: yellow;
     align-content: center;
     flex-direction: column;
     border: 2px solid white;
@@ -54,6 +55,7 @@ body {
     transition: box-shadow 0.5s, background-color 0.5s;
     border-radius: 10px;
 }
+
 
 .box:hover {
     background-color: rgba(67, 65, 67, 0.432);
