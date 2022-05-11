@@ -331,4 +331,5 @@ export class DBManager
 		return resultao;
 	}
 
+
 }

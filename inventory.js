@@ -1,25 +1,32 @@
 // const notBought = document.getElementsByClassName("boxNB")
 import {DBManager} from './DBManager.js';
 
-const pj = document.getElementById("pajarita")
+
 // const bought = document.getElementsByClassName("boxB")
-const cad = document.getElementById("cadena")
-const bts = document.getElementById("betis")
-const g = document.getElementById("gorro")
-const nar = document.getElementById("naruto")
-const mar = document.getElementById("mario")
-const pie = document.getElementById("chancla")
-const cat = document.getElementById("gato")
-const sus = document.getElementById("amogus")
-const sandi = document.getElementById("sandia")
-const pez = document.getElementById("pescao")
-const burg = document.getElementById("burgir")
-const gafa = document.getElementById("gafas")
+
+const gorro = document.getElementById("gorro")
+const naruto = document.getElementById("naruto")
+const mario = document.getElementById("mario")
+const cumple = document.getElementById("cumple")
+const pajarita = document.getElementById("pajarita")
+const cadena = document.getElementById("cadena")
+const betis = document.getElementById("betis")
+const traje = document.getElementById("traje")
+const chancla = document.getElementById("chancla")
+const gato = document.getElementById("gato")
+const amogus = document.getElementById("amogus")
+const tortu = document.getElementById("tortu")
+const sandia = document.getElementById("sandia")
+const pescao = document.getElementById("pescao")
+const burgir = document.getElementById("burgir")
+const gafas = document.getElementById("gafas")
 
 const b1 = document.getElementById("b1")
 const b2= document.getElementById("b2")
 const b3 = document.getElementById("b3")
 const b4 = document.getElementById("b4")
+
+
 
 const db = new DBManager();
 db.init();
@@ -28,84 +35,102 @@ db.init();
 // var body = [0,0,0,0,0]
 // var d = [0,0,0,0,0]
 // var face = [0,0]
-var user =sessionStorage.getItem("name")
+var user = sessionStorage.getItem("name")
 var mon = await db.getCoins(user)
-money.innerHTML= mon +"€"
 
+money.innerHTML= mon+"€"
 
 var head= false
 var body = false
 var face = false
 var d = false
 
-pj.addEventListener("click", function() {
-    buy(pj);
+gorro.addEventListener("click", function() {
+    buy(gorro);
 }); 
-pj.addEventListener("click", function() {
-    equipB(pj);
+gorro.addEventListener("click", function() {
+    equipH(gorro);
 }); 
-cad.addEventListener("click", function() {
-    buy(cad);
+naruto.addEventListener("click", function() {
+    buy(naruto);
 }); 
-cad.addEventListener("click", function() {
-    equipB(cad);
+naruto.addEventListener("click", function() {
+    equipH(naruto);
 }); 
-bts.addEventListener("click", function() {
-    buy(bts);
+mario.addEventListener("click", function() {
+    buy(mario);
 }); 
-bts.addEventListener("click", function() {
-    equipB(bts);
+mario.addEventListener("click", function() {
+    equipH(mario);
 }); 
-g.addEventListener("click", function() {
-    buy(g);
+cumple.addEventListener("click", function() {
+    buy(cumple);
 }); 
-g.addEventListener("click", function() {
-    equipH(g);
+cumple.addEventListener("click", function() {
+    equipH(cumple);
+});
+pajarita.addEventListener("click", function() {
+    buy(pajarita);
 }); 
-nar.addEventListener("click", function() {
-    buy(nar);
+pajarita.addEventListener("click", function() {
+    equipB(pajarita);
 }); 
-nar.addEventListener("click", function() {
-    equipH(nar);
+cadena.addEventListener("click", function() {
+    buy(cadena);
 }); 
-mar.addEventListener("click", function() {
-    buy(mar);
+cadena.addEventListener("click", function() {
+    equipB(cadena);
 }); 
-mar.addEventListener("click", function() {
-    equipH(mar);
+betis.addEventListener("click", function() {
+    buy(betis);
 }); 
-pie.addEventListener("click", function() {
-    buy(pie);
+betis.addEventListener("click", function() {
+    equipB(betis);
 }); 
-pie.addEventListener("click", function() {
-    equipD(pie);
+traje.addEventListener("click", function() {
+    buy(traje);
 }); 
-cat.addEventListener("click", function() {
-    buy(cat);
+traje.addEventListener("click", function() {
+    equipB(traje);
+});
+chancla.addEventListener("click", function() {
+    buy(chancla);
 }); 
-cat.addEventListener("click", function() {
-    equipD(cat);
+chancla.addEventListener("click", function() {
+    equipD(chancla);
 }); 
-sus.addEventListener("click", function() {
-    buy(sus);
+gato.addEventListener("click", function() {
+    buy(gato);
 }); 
-sus.addEventListener("click", function() {
-    equipD(sus);
+gato.addEventListener("click", function() {
+    equipD(gato);
 }); 
-sandi.addEventListener("click", function() {
-    eat(sandi);
+amogus.addEventListener("click", function() {
+    buy(amogus);
 }); 
-pez.addEventListener("click", function() {
-    eat(pez);
+amogus.addEventListener("click", function() {
+    equipD(amogus);
 }); 
-burg.addEventListener("click", function() {
-    eat(burg);
+tortu.addEventListener("click", function() {
+    buy(tortu);
 }); 
-gafa.addEventListener("click", function() {
-    buy(gafa);
+tortu.addEventListener("click", function() {
+    equipD(tortu);
+});
+sandia.addEventListener("click", function() {
+    eat(sandia);
 }); 
-gafa.addEventListener("click", function() {
-    equipF(gafa);
+pescao.addEventListener("click", function() {
+    eat(pescao);
+}); 
+burgir.addEventListener("click", function() {
+    eat(burgir);
+}); 
+gafas.addEventListener("click", function() {
+    buy(gafas);
+}); 
+gafas.addEventListener("click", function() {
+    equipF(gafas);
 }); 
 b1.addEventListener("click", function() {
     equipH(b1);
@@ -121,11 +146,18 @@ b4.addEventListener("click", function() {
 })
 
 
-function buy(obj){
+async function buy(obj){
     //if tengo dinero lo compro
-    obj.classList.add("boxB")
-    obj.classList.remove("boxNB")
-}
+    let objN = obj.id
+    let precio = await db.getItemPrice(objN)
+    if (mon >= precio && obj.className[7]=='N') {
+        obj.classList.add("boxB")
+        obj.classList.remove("boxNB") 
+        mon=mon-precio
+        money.innerHTML= mon +"€"
+    }
+    // await db.setCoins(dineroDisponible-dineroObj, user)
+ }
 
 function equipH(obj){
     if(head==true){
@@ -161,29 +193,32 @@ function equipF(obj){
 
 function unequipH(){
     head=false
-    g.classList.remove("boxSel")
-    nar.classList.remove("boxSel")
-    mar.classList.remove("boxSel")
+    gorro.classList.remove("boxSel")
+    naruto.classList.remove("boxSel")
+    mario.classList.remove("boxSel")
+    cumple.classList.remove("boxSel")
     b1.classList.remove("boxSel")
 }
 
 function unequipB(){
     body=false
-    pj.classList.remove("boxSel")
-    cad.classList.remove("boxSel")
-    bts.classList.remove("boxSel")
+    pajarita.classList.remove("boxSel")
+    cadena.classList.remove("boxSel")
+    betis.classList.remove("boxSel")
+    traje.classList.remove("boxSel")
     b2.classList.remove("boxSel")
 }
 function unequipD(){
     d=false
-    pie.classList.remove("boxSel")
-    cat.classList.remove("boxSel")
-    sus.classList.remove("boxSel")
+    chancla.classList.remove("boxSel")
+    gato.classList.remove("boxSel")
+    amogus.classList.remove("boxSel")
+    tortu.classList.remove("boxSel")
     b3.classList.remove("boxSel")
 }
 function unequipF(){
     face=false
-    gafa.classList.remove("boxSel")
+    gafas.classList.remove("boxSel")
     b4.classList.remove("boxSel")
 }
 
@@ -204,8 +239,18 @@ function unequipF(){
 // }
 
 
-function eat(obj){
-    obj.classList.add("boxB")
-    obj.classList.remove("boxNB")
-    setTimeout(() => {   obj.classList.add("boxNB") }, 1000);
+async function eat(obj){
+    let objN = obj.id
+    let precio = await db.getItemPrice(objN)
+    if (mon >= precio && obj.className[7]=='N') {
+        obj.classList.add("boxB")
+        obj.classList.remove("boxNB") 
+        mon=mon-precio
+        money.innerHTML= mon +"€"
+        setTimeout(() => {   obj.classList.add("boxNB") }, 1000);
+        setTimeout(() => {  obj.classList.remove("boxB") }, 1000);
+        
+    }   
 }
+
+

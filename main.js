@@ -80,8 +80,6 @@ function pinwiFunction () {
     let currWidth = Pinwi.clientWidth
     console.log(currWidth)
 
-
-
     Pinwi.style.width = (initWidth*1.05) + "px"
     Head.style.width = (initWidth*1.05) + "px"
     body.style.width = (initWidth*1.05) + "px"
