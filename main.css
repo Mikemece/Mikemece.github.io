@@ -37,6 +37,7 @@ img{
     font-size: 35px;
     color: black;
     box-shadow: 5px 5px 10px 5px black;
+    cursor: pointer;
 }
 
 .ropa{
@@ -79,7 +80,7 @@ img{
 }
 
 #roro{
-    bottom: 10px;
+    bottom: 50%;
     right: 10px;
 }
 

@@ -127,52 +127,52 @@ export class DBManager
 /**
  * El método loginUser necesita 2 parametros, el usuario y la contraseña,
  * este comprueba que esté registrado, en caso de error de las credenciales
- * te devuelve el valor numérico 0.
+ * te devuelve el valor numérico 0, y en caso del usuario no existir te devuelve -1.
  * En el caso de haber acertado te devuelve un objeto con los parametros:
  * user, Password, EXP, coins y equipped
  * 
  * por ejemplo voy a usar coins, pero con todos es igual. Se llama tal que así:
  * var objeto = await loginUser(usuario, contra);
- * objeto.coins;
+ * objeto.coin;
  * ó también se puede llamar así:
- * objeto['coins'];
+ * objeto['coin'];
  * 
  * igual con el resto de parametros 
  */
-	async loginUser(usuario, contra)
-	{
-		const docRef = doc(DBManager.BD, "userInfo", usuario);
-		const docSnap = await getDoc(docRef);
-		let usuarioresultao = 0;
+ async loginUser(usuario, contra)
+ {
+	 const docRef = doc(DBManager.BD, "userInfo", usuario);
+	 const docSnap = await getDoc(docRef);
+	 let usuarioresultao = 0;
 
-		if (docSnap.exists()) {
-			if(contra == docSnap.get("Password"))
-			{
-				usuarioresultao = 
-				{
-					user: usuario,
-					Password: contra, 
-					EXP: docSnap.get("Exp"),
-					coins: docSnap.get("coins"),
-					equipped: docSnap.get("Equipped")
-				}
-				//console.log(usuarioresultao);
-				
-			}else
-			{
-				console.log("La contraseña es incorrecta");
-				usuarioresultao = 0;
-			}
-			
-		  } else {
-			// doc.data() will be undefined in this case
-			usuarioresultao = 0;
-			console.log("El usuario introducido no está registrado");
-		  }
-		  return usuarioresultao;
-  	//console.log(docSnap);
+	 if (docSnap.exists()) {
+		 if(contra == docSnap.get("Password"))
+		 {
+			 usuarioresultao = 
+			 {
+				 user: usuario,
+				 Password: contra, 
+				 EXP: docSnap.get("Exp"),
+				 coins: docSnap.get("coins"),
+				 equipped: docSnap.get("Equipped")
+			 }
+			 //console.log(usuarioresultao);
+			 
+		 }else
+		 {
+			 console.log("La contraseña es incorrecta");
+			 usuarioresultao = 0;
+		 }
+		 
+	   } else {
+		 // doc.data() will be undefined in this case
+		 usuarioresultao = -1;
+		 console.log("El usuario introducido no está registrado");
+	   }
+	   return usuarioresultao;
+   //console.log(docSnap);
 
-	}
+ }
 
 
 /** El parámetro es el nombre de usuario, se asume que es correcto.
@@ -202,7 +202,7 @@ export class DBManager
  * Ejemplo de uso:
  * var equipados = await getItemsEquipped("usuario1");
 	 */
-	 async getItemsEquipped(usuario)	//Incompleto
+	 async getItemsEquipped(usuario)
 	 {
 		 const docRef = doc(DBManager.BD, "userInfo", usuario);
 		 const docSnap = await getDoc(docRef);
@@ -211,9 +211,14 @@ export class DBManager
 		 {
 			 resultao = await docSnap.get("Equipped");
 			 let arrayresultao = [];
-			// console.log(resultao);
+			 //console.log(resultao);
 			 for (let i = 0; i < Object.getOwnPropertyNames(resultao).length; i++) {
-				arrayresultao[i] =  Object.getOwnPropertyNames(resultao)[i];
+				 //console.log(resultao);
+				 if(resultao[Object.getOwnPropertyNames(resultao)[i]])
+				 {
+					 arrayresultao.push (Object.getOwnPropertyNames(resultao)[i]);
+				 }
+				
 			  }
 			  resultao = arrayresultao;
 		 }

@@ -10,7 +10,7 @@ const QuizScore = document.getElementById("score");
 let shuffledQuestions,currentQuestionIndex;
 var quizScore = 0;
 var mon = 0
-
+sessionStorage.setItem("m", mon)
 startButton.addEventListener("click", startGame);
 
 nextButton.addEventListener("click",() =>{

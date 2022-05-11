@@ -28,7 +28,6 @@ body {
 .grid-container {
     display: grid;
     font-size: 35px;
-
     border: 3px solid rgb(216, 195, 5);
     box-shadow: rgb(0, 0, 0) 0px 0px 20px;
     width: 85%;
@@ -41,7 +40,7 @@ body {
 }
 
 /* botones de compra */
-.box {
+.box{
     display: flex;
     justify-content: center;
     color: yellow;
@@ -54,13 +53,48 @@ body {
     text-align: center;
     transition: box-shadow 0.5s, background-color 0.5s;
     border-radius: 10px;
+    cursor:pointer;
 }
 
+/* imagenes */
+.box img {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    left: 0%;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
 
 .box:hover {
-    background-color: rgba(67, 65, 67, 0.432);
-    box-shadow: whitesmoke 5px 5px 10px;
+    box-shadow: whitesmoke 0px 0px 10px 10px;
+}
 
+.boxNB:hover .prize {
+    opacity: 1;
+
+}
+.boxNB:hover img {
+    opacity: 0.5    ;
+    filter: grayscale(0%);
+}
+
+/* imagenes */
+.boxB img{
+    filter: grayscale(0%);
+}
+
+.boxNB img{
+    filter: grayscale(100%);
+}
+
+.barrier img{
+    top:0%;
+    filter: grayscale(0%);
+}
+
+.boxSel{
+    box-shadow: whitesmoke 0px 0px 10px 10px;
 }
 
 /* la salida */
@@ -74,31 +108,17 @@ body {
 
 /* texto del precio */
 .prize {
+    font-family: 'Press Start 2P', cursive;
     position: relative;
-    text-align: center;
-    font-size: 10mm;
-    top: -45%;
+    text-align: end;
+    font-size: 15mm;
+    top: -45%;  
+    right: -16%;  
     color: gold;
     opacity: 0;
     transition: 0.5s;
 }
 
-.box:hover .prize {
-    opacity: 1;
 
-}
 
-.box:hover img {
-    opacity: 0.5    ;
-    filter: grayscale(0%);
-}
 
-/* imagenes */
-img {
-    position: relative;
-    top: 15%;
-    width: 100%;
-    left: 0%;
-    filter: grayscale(100%);
-    transition: 0.5s;
-}

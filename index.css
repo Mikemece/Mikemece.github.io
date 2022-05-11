@@ -13,7 +13,7 @@ body {
     justify-content: center;
     font-size: 10px;
     background: url("https://64.media.tumblr.com/59fd3cd91939a427cac708b992cad301/tumblr_ohx2xpUsAJ1v1vxovo1_1280.gifv");
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
     background-size: cover;
     font-family: 'Press Start 2P', cursive;
 }
