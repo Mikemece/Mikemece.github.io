@@ -1,4 +1,6 @@
 // const notBought = document.getElementsByClassName("boxNB")
+import {DBManager} from './DBManager.js';
+
 const pj = document.getElementById("pajarita")
 // const bought = document.getElementsByClassName("boxB")
 const cad = document.getElementById("cadena")
@@ -19,10 +21,17 @@ const b2= document.getElementById("b2")
 const b3 = document.getElementById("b3")
 const b4 = document.getElementById("b4")
 
+const db = new DBManager();
+db.init();
+
 // var head= [0,0,0,0,0]
 // var body = [0,0,0,0,0]
 // var d = [0,0,0,0,0]
 // var face = [0,0]
+var user =sessionStorage.getItem("name")
+var mon = await db.getCoins(user)
+money.innerHTML= mon +"€"
+
 
 var head= false
 var body = false

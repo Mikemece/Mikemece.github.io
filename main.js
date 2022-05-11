@@ -1,3 +1,5 @@
+import {DBManager} from './DBManager.js';
+
 
 const Pinwi = document.getElementById("pinwi")
 const Name = document.getElementById("name")
@@ -7,25 +9,43 @@ const d = document.getElementById("d")
 const face = document.getElementById("face")
 const Ropa = document.getElementById("roro")
 const money = document.getElementById("money")
+const Lvl = document.getElementById("lvl")
+const Exp = document.getElementById("exp")
 
-var exp = 0
-var lvl = 0
+const db = new DBManager();
+db.init();
+
+
+var lvl= 0   
 var initWidth = Pinwi.clientWidth
 var cont= 0
+var user =sessionStorage.getItem("name")
 
-var mon = sessionStorage.getItem("m")
+var mon = await db.getCoins(user)
+var exp = await db.getExp(user)
+
 money.innerHTML= mon +"€"
+
 
 Pinwi.addEventListener("click", pinwiFunction) 
 face.addEventListener("click", pinwiFunction) 
 Ropa.addEventListener("click", dress) 
-money.addEventListener("click", hereComes) 
 
+    lvl=Math.trunc(exp/10)
+    exp=exp%10;
+    
 
-function hereComes(){
-    mon++
-    money.innerHTML=mon +"€"
+switch (lvl){
+    case 0: break
+    case 1: Pinwi.src="./skin/huevoRotoF.png"; break;
+    case 2: Pinwi.src = "./skin/pinwiBBF.png"; break;
+    default: Pinwi.src = "./skin/pinwiAdulF.png"; break;
 }
+
+Lvl.innerHTML = "LVL "+ lvl
+Exp.innerHTML = exp + " EXP"
+Name.innerHTML=user
+
 
 
 function dress(){
@@ -56,30 +76,17 @@ function dress(){
 
 function pinwiFunction () {
     // console.log(pinwiclicked)
-    let nameRect = Name.getBoundingClientRect()
-    let pinwiRect = Pinwi.getBoundingClientRect()
     exp++
-    let Exp = document.getElementById("exp")
-    let Lvl = document.getElementById("lvl")
     let currWidth = Pinwi.clientWidth
     console.log(currWidth)
-    if(exp==10){
-        exp-=10;
-        lvl++;
-    }
-    switch (lvl){
-        case 0: break
-        case 1: Pinwi.src="./skin/huevoRotoF.png"; break;
-        case 2: Pinwi.src = "./skin/pinwiBBF.png"; break;
-        default: Pinwi.src = "./skin/pinwiAdulF.png"; break;
-    }
 
 
-    Pinwi.style.width = (initWidth*1.03) + "px"
-    Head.style.width = (initWidth*1.03) + "px"
-    body.style.width = (initWidth*1.03) + "px"
-    d.style.width = (initWidth*1.03) + "px"
-    face.style.width = (initWidth*1.03) + "px"
+
+    Pinwi.style.width = (initWidth*1.05) + "px"
+    Head.style.width = (initWidth*1.05) + "px"
+    body.style.width = (initWidth*1.05) + "px"
+    d.style.width = (initWidth*1.05) + "px"
+    face.style.width = (initWidth*1.05) + "px"
     setTimeout(() => {  Pinwi.style.width = initWidth + "px"; }, 150);
     setTimeout(() => {  Head.style.width = initWidth + "px"; }, 150);
     setTimeout(() => {  body.style.width = initWidth + "px"; }, 150);
@@ -87,9 +94,8 @@ function pinwiFunction () {
     setTimeout(() => {  face.style.width = initWidth + "px"; }, 150);
 
     console.log(nameRect.top)
-    Lvl.innerHTML = "LVL "+ lvl
-    Exp.innerHTML = exp + " EXP"
-
     }
+
+
 
 

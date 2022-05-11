@@ -59,18 +59,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }else
         {
             console.log("Hemos iniciado sesión en usuario: " + usuario.user + " con la contraseña: " + usuario.Password + " con un nivel de experiencia: " + usuario.EXP);
-            setFormMessage(loginForm, "success", "You logged in succesfully!")
+            sessionStorage.setItem("name", loginUsername.value)
             window.location.href = "./main.html";
         }
     });
 
-/*     createAccountForm.addEventListener("submit", e => {
-        if(db.loginUser(signupUsername) == -1){
-            db.registerUser(signupUsername, signupPassword);
-            window.location.href = "./main.html";
+     createAccountForm.addEventListener("submit", async e => {
+        e.preventDefault()
+        
+        if (signupPassword.value!=confirmPassword.value){
+            setFormMessage(createAccountForm, "error", "The passwords doesn't match")
+        }else{
+            const isRegistered = await db.loginUser(signupUsername.value, "")
+            if(isRegistered==-1){
+                const registeredUser = await db.registerUser(signupUsername.value, signupPassword.value);
+                setFormMessage(loginForm, "success", "You signed up succesfully!")
+                loginForm.classList.remove("form--hidden");
+                createAccountForm.classList.add("form--hidden");
+            }else{
+                setFormMessage(createAccountForm, "error", "The user already exists!")
+            }
         }
-        inputElement.addEventListener("input", e => {
-            clearInputError(inputElement);
-        }); 
-    }); */
+        
+    }); 
 });
