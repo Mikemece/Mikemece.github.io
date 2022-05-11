@@ -109,11 +109,11 @@ body {
 /* texto del precio */
 .prize {
     font-family: 'Press Start 2P', cursive;
-    position: relative;
-    text-align: end;
-    font-size: 15mm;
+    position:relative;
+    width: 1vw;
+    font-size:3vw;
     top: -45%;  
-    right: -16%;  
+    right:-1.3vw;
     color: gold;
     opacity: 0;
     transition: 0.5s;
