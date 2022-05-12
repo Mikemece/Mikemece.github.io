@@ -110,41 +110,34 @@ body {
 .prize {
     font-family: 'Press Start 2P', cursive;
     position:relative;
-    width: 1vw;
+
+    /*  width: 1vw; */
     font-size:3vw;
     top: -45%;  
-    right:-1.3vw;
+    right:-0.5vw; 
     color: gold;
     opacity: 0;
     transition: 0.5s;
 }
 
-.button{
+#money{
     position: absolute;
-    background-color: white;
+    justify-content: center;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5vw;
     margin: 5px;
     padding: 10px;
     padding-right: 20px;
     padding-left: 20px;
     display: inline-block;
-    border-radius: 10px;
-    font-size: 35px;
-    color: black;
-    box-shadow: 5px 5px 10px 5px black;
-    cursor: pointer;
-}
-
-#money{
-    justify-content: center;
-    font-size: 45px;
-    top: 30px;
-    right: 30px;
     box-shadow: 0px 0px 10px 5px rgb(22, 71, 3);
     border-radius:50%;
     text-align: center;
     display: flex;
     color: rgb(38, 124, 4);
     background-color: rgba(202, 241, 191, 0.904);
+    user-select: none;
 }
 
 

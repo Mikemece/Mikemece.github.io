@@ -19,21 +19,77 @@ db.init();
 var lvl= 0   
 var initWidth = Pinwi.clientWidth
 var cont= 0
-var user =sessionStorage.getItem("name")
+var user =sessionStorage.getItem("username")
+var pet = sessionStorage.getItem("name")
 
 var mon = await db.getCoins(user)
 var exp = await db.getExp(user)
 
+lvl=Math.trunc(exp/10)
+exp=exp%10;
+
 money.innerHTML= mon +"€"
+Lvl.innerHTML = "LVL "+ lvl
+Exp.innerHTML = exp + " EXP"
+Name.innerHTML= pet
 
 
-Pinwi.addEventListener("click", pinwiFunction) 
-face.addEventListener("click", pinwiFunction) 
-Ropa.addEventListener("click", dress) 
 
-    lvl=Math.trunc(exp/10)
-    exp=exp%10;
-    
+var equipped = await db.getEquip(user)
+
+for(let i=0; i<equipped.length;i++){
+    if(equipped[i]=="gorro"){
+        Head.src="./ropa/gorroF.png";
+    }
+    if(equipped[i]=="naruto"){
+        Head.src="./ropa/narutoF.png";
+    }
+    if(equipped[i]=="mario"){
+        Head.src="./ropa/marioF.png";
+    }
+    if(equipped[i]=="cumple"){
+        Head.src="./ropa/cumpleF.png";
+    }
+    if(equipped[i]=="b1"){
+        Head.src="./ropa/vacio.png";
+    }
+    if(equipped[i]=="pajarita"){
+        body.src="./ropa/pajaF.png";
+    }
+    if(equipped[i]=="cadena"){
+        body.src="./ropa/cadenaF.png";
+    }
+    if(equipped[i]=="betis"){
+        body.src="./ropa/betisF.png";
+    }
+    if(equipped[i]=="traje"){
+        body.src="./ropa/trajeF.png";
+    }
+    if(equipped[i]=="b2"){
+        body.src="./ropa/vacio.png";
+    }
+    if(equipped[i]=="chancla"){
+        d.src="./ropa/chanclasF.png";
+    }
+    if(equipped[i]=="gato"){
+        d.src="./ropa/gatoF.png";
+    }
+    if(equipped[i]=="amogus"){
+        d.src="./ropa/amogusF.png";
+    }
+    if(equipped[i]=="tortu"){
+        d.src="./ropa/tortuF.png";
+    }
+    if(equipped[i]=="b3"){
+        d.src="./ropa/vacio.png";
+    }
+    if(equipped[i]=="gafas"){
+        face.src="./ropa/gafasF.png"
+    }
+    if(equipped[i]=="b4"){
+        face.src="./ropa/vacio.png";
+    }
+}
 
 switch (lvl){
     case 0: break
@@ -42,41 +98,25 @@ switch (lvl){
     default: Pinwi.src = "./skin/pinwiAdulF.png"; break;
 }
 
-Lvl.innerHTML = "LVL "+ lvl
-Exp.innerHTML = exp + " EXP"
-Name.innerHTML=user
+Pinwi.addEventListener("click", pinwiFunction) 
+Head.addEventListener("click", pinwiFunction) 
+body.addEventListener("click", pinwiFunction) 
+d.addEventListener("click", pinwiFunction) 
+face.addEventListener("click", pinwiFunction) 
+Ropa.addEventListener("click", dinero) 
 
 
-
-function dress(){
-
-    if(cont==0){
-        Head.src="./ropa/gorroF.png";
-        body.src="./ropa/cadenaF.png";
-        d.src="./ropa/chanclasF.png";
-        face.src="./ropa/gafasF.png"
-        cont++
-
-    }else if(cont==1){
-        Head.src="./ropa/narutoF.png";
-        body.src="./ropa/betisF.png";
-        d.src="./ropa/amogusF.png";
-        face.src="./ropa/vacio.png"
-        cont++
-
-    }else{
-        Head.src ="./ropa/marioF.png"
-        body.src="./ropa/pajaF.png"
-        d.src="./ropa/gatoF.png"
-        face.src="./ropa/vacio.png"
-        cont=cont-2
-    }
+async function dinero(){
+    mon++
+    money.innerHTML=mon+"€"
+    await db.setCoins(user, mon)
 }
+
+
 
 
 function pinwiFunction () {
     // console.log(pinwiclicked)
-    exp++
     let currWidth = Pinwi.clientWidth
     console.log(currWidth)
 
@@ -91,9 +131,5 @@ function pinwiFunction () {
     setTimeout(() => {  d.style.width = initWidth + "px"; }, 150);
     setTimeout(() => {  face.style.width = initWidth + "px"; }, 150);
 
-    console.log(nameRect.top)
-    }
-
-
-
-
+    console.log("BOING")
+}
