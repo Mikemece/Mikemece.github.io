@@ -17,32 +17,19 @@ var face = true
 var d = true
 
 var bought = await db.getBuy(user)
-for (let i = 0; i < bought.length; i++) {
-    let found = false
-    let j = 0
-    while (j < items.length && !found) {
-        if (bought[i] == items[j].id) {
-            items[j].classList.add("boxB")
-            items[j].classList.remove("boxNB")
-            found = true
-        }
-        console.log(items[j].classList);
-        j++
-    }
+
+bought.forEach(element => {
+    console.log(element)
+    document.getElementById(element).classList.add("boxB")
+    document.getElementById(element).classList.remove("boxNB")
+});
+
+var equipped = await db.getEquipped(user)
+console.log(equipped)
+for (var Parte in equipped){
+    document.getElementById(equipped[Parte]).classList.add("boxSel")
 }
 
-var equipped = await db.getEquip(user)
-for (let i = 0; i < equipped.length; i++) {
-    let found = false
-    let j = 0
-    while (j < items.length && !found) {
-        if (equipped[i] == items[j].id) {
-            items[j].classList.add("boxSel")
-            found = true
-        }
-        j++
-    }
-}
 
 for (let i = 0; i < items.length; i++) {
     console.log(items[i])
@@ -50,9 +37,8 @@ for (let i = 0; i < items.length; i++) {
         items[i].addEventListener("click", function () {
             console.log(items[i].classList);
             eat(items[i]);
-        });
-
-    } else {
+        });      
+    }else{
 
         items[i].addEventListener("click", function () {
             buy(items[i]);
@@ -103,7 +89,8 @@ async function equipH(obj) {
             unequipH()
         }
         obj.classList.add("boxSel")
-        equipped.splice(0, 1, obj.id)
+        equipped.Head=obj.id
+        //equipped.splice(0, 1, obj.id)
         await db.setEquip(user, equipped)
         head = true
     }
@@ -115,7 +102,8 @@ async function equipB(obj) {
             unequipB()
         }
         obj.classList.add("boxSel")
-        equipped.splice(1, 1, obj.id)
+        equipped.Body=obj.id
+        //equipped.splice(1, 1, obj.id)
         await db.setEquip(user, equipped)
         body = true
     }
@@ -127,7 +115,8 @@ async function equipD(obj) {
             unequipD()
         }
         obj.classList.add("boxSel")
-        equipped.splice(2, 1, obj.id)
+        equipped.Down=obj.id
+        //equipped.splice(2, 1, obj.id)
         await db.setEquip(user, equipped)
         d = true
     }
@@ -139,7 +128,8 @@ async function equipF(obj) {
             unequipF()
         }
         obj.classList.add("boxSel")
-        equipped.splice(3, 1, obj.id)
+        equipped.Face=obj.id
+        //equipped.splice(3, 1, obj.id)
         await db.setEquip(user, equipped)
         face = true
     }

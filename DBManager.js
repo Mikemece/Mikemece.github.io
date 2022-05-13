@@ -423,14 +423,14 @@ export class DBManager {
 
 	async getEquipped(usuario) {
 		const docRef = doc(DBManager.BD, "userInfo", usuario);
-		const docSnap = await getDoc(docRef);
-		let resultao = -1;
-		if (docSnap.exists()) {
-			resultao = await docSnap.get("Equipped");
+		const docSnap = await  getDoc(docRef);
+		let equipped = ""
+		if(docSnap.exists)
+		{
+			equipped = await docSnap.get("Equipped")
 		}
-		return resultao;
-	}
-
+		return equipped
+}
 		/** El parámetro es el nombre del usuario y una lista con el nombre de los objetos equipados, 
 	* en caso de error devuelve un error
 	* En caso de ser correcto actualiza la lista de objetos equipados en la base de datos.
@@ -442,7 +442,7 @@ export class DBManager {
 		try {
 			updateDoc(doc(DBManager.BD, "userInfo", usuario),
 				{
-					Equip: equip
+					Equipped: equip
 				})
 		} catch (e) {
 			console.error("Error changing equip: ", e);
