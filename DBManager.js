@@ -134,7 +134,11 @@ export class DBManager {
 					coins: 0,
 					petName: petname,
 					user: usuario,
-					Equip: [],
+					Equip:[],
+					Equipped: {Head:null,
+							Body:null,
+							Down:null,
+							Face:null},
 
 				});
 			resultao = 1;
@@ -413,6 +417,16 @@ export class DBManager {
 		let resultao = -1;
 		if (docSnap.exists()) {
 			resultao = await docSnap.get("Equip");
+		}
+		return resultao;
+	}
+
+	async getEquipped(usuario) {
+		const docRef = doc(DBManager.BD, "userInfo", usuario);
+		const docSnap = await getDoc(docRef);
+		let resultao = -1;
+		if (docSnap.exists()) {
+			resultao = await docSnap.get("Equipped");
 		}
 		return resultao;
 	}

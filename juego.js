@@ -53,7 +53,6 @@ window.onload = async function () {
     oprimir_btn(3)
   })
     }
-  const w = await db.setFecha(username, date.toLocaleDateString())
 };
 
 let mon = await db.getCoins(username)
@@ -158,6 +157,7 @@ async function oprimir_btn(i) {
     return;
   }
   suspender_botones = true;
+  await db.setFecha(username, date.toLocaleDateString())
   if (posibles_respuestas[i] == pregunta.respuesta) {
     preguntas_correctas++;
     btn_correspondiente[i].style.background = "lightgreen";
