@@ -68,10 +68,6 @@ export class DBManager {
 
 	}
 
-	insert() {
-
-	}
-
 	/** El parámetro es el nombre de usuario, se asume que es correcto.
  * Igualmente en caso de error devuelve -1
  * En caso de ser correcto devuelve el valor de las monedas del usuario.
@@ -108,9 +104,6 @@ export class DBManager {
 		return 1
 	}
 
-	delete() {
-
-	}
 	/**
 	 * Registra el usuario con los datos proporcionados
 	 * Te devuelve un valor numérico para asegurarte que ha sido correcto
@@ -134,11 +127,13 @@ export class DBManager {
 					coins: 0,
 					petName: petname,
 					user: usuario,
-					Equip:[],
-					Equipped: {Head:null,
-							Body:null,
-							Down:null,
-							Face:null},
+					Equip: [],
+					Equipped: {
+						Head: "b1",
+						Body: "b2",
+						Down: "b3",
+						Face: "b4"
+					},
 
 				});
 			resultao = 1;
@@ -213,24 +208,24 @@ export class DBManager {
 		return resultao;
 	}
 
-		/** El parámetro es el nombre de usuario y la exp actualizada, se asume que es correcto.
- * En caso de error pues hay error
- * En caso de ser correcto actualiza el valor de la exp del usuario en la base de datos
- * 
- * Ejemplo de uso:
- * await getCoins("usuario1", exp);
-	 */
-		 async setExp(usuario, experiencia) {
-			try {
-				updateDoc(doc(DBManager.BD, "userInfo", usuario),
-					{
-						Exp: experiencia
-					})
-			} catch (e) {
-				console.error("Error saving exp: ", e);
-			}
-			return 1
+	/** El parámetro es el nombre de usuario y la exp actualizada, se asume que es correcto.
+* En caso de error pues hay error
+* En caso de ser correcto actualiza el valor de la exp del usuario en la base de datos
+* 
+* Ejemplo de uso:
+* await getCoins("usuario1", exp);
+ */
+	async setExp(usuario, experiencia) {
+		try {
+			updateDoc(doc(DBManager.BD, "userInfo", usuario),
+				{
+					Exp: experiencia
+				})
+		} catch (e) {
+			console.error("Error saving exp: ", e);
 		}
+		return 1
+	}
 
 	/** El parámetro es el nombre de usuario, se asume que es correcto.
  * Igualmente en caso de error devuelve -1
@@ -276,13 +271,13 @@ export class DBManager {
 		return resultao;
 	}
 
-		/** El parámetro es el nombre del item, 
-	* en caso de error devuelve -1
-	* En caso de ser correcto devuelve el valor numérico de la experiencia que da.
-	* 
-	* Ejemplo de uso:
-	* var exp = await getItemExp("ternera");
-		*/
+	/** El parámetro es el nombre del item, 
+* en caso de error devuelve -1
+* En caso de ser correcto devuelve el valor numérico de la experiencia que da.
+* 
+* Ejemplo de uso:
+* var exp = await getItemExp("ternera");
+	*/
 	async getItemExp(nombreItem) {
 		const docRef = doc(DBManager.BD, "shop", nombreItem);
 		const docSnap = await getDoc(docRef);
@@ -351,30 +346,25 @@ export class DBManager {
 	 * 
 	 * No hace ninguna comprobación porque la única manera en la que esto estaría vacío sería si la BD se corrompiese.
 	 */
-	 async getShop()
-	 {
-		 const CollectionSnapShot= await getDocs(collection(DBManager.BD, "shop"));
-		 let resultao = [];
-		 CollectionSnapShot.forEach((doc) => 
-		 {
-			 //console.log(doc.id, " => ", doc.data());
-			 resultao.push(doc.id);
-		 });
-		 return resultao;
- 
-	 }
-
-	getQuestion() {
+	async getShop() {
+		const CollectionSnapShot = await getDocs(collection(DBManager.BD, "shop"));
+		let resultao = [];
+		CollectionSnapShot.forEach((doc) => {
+			//console.log(doc.id, " => ", doc.data());
+			resultao.push(doc.id);
+		});
+		return resultao;
 
 	}
 
-		/** El parámetro es el nombre del usuario, 
-	* en caso de error devuelve -1
-	* En caso de ser correcto devuelve euna lista de con los nombres de los objetos comprados.
-	* 
-	* Ejemplo de uso:
-	* var bought = await getBuy("pepe");
-		*/
+
+	/** El parámetro es el nombre del usuario, 
+* en caso de error devuelve -1
+* En caso de ser correcto devuelve euna lista de con los nombres de los objetos comprados.
+* 
+* Ejemplo de uso:
+* var bought = await getBuy("pepe");
+	*/
 	async getBuy(usuario) {
 		const docRef = doc(DBManager.BD, "userInfo", usuario);
 		const docSnap = await getDoc(docRef);
@@ -385,13 +375,13 @@ export class DBManager {
 		return resultao;
 	}
 
-		/** El parámetro es el nombre del usuario y una lista con el nombre de los objetos comprados, 
-	* en caso de error devuelve un error
-	* En caso de ser correcto actualiza la lista de objetos comprados en la base de datos.
-	* 
-	* Ejemplo de uso:
-	* await setBuy("pepe", bought);
-		*/
+	/** El parámetro es el nombre del usuario y una lista con el nombre de los objetos comprados, 
+* en caso de error devuelve un error
+* En caso de ser correcto actualiza la lista de objetos comprados en la base de datos.
+* 
+* Ejemplo de uso:
+* await setBuy("pepe", bought);
+	*/
 	async setBuy(usuario, buy) {
 		try {
 			updateDoc(doc(DBManager.BD, "userInfo", usuario),
@@ -404,40 +394,29 @@ export class DBManager {
 		return 1
 	}
 
-		/** El parámetro es el nombre del usuario, 
-	* en caso de error devuelve -1
-	* En caso de ser correcto devuelve euna lista de con los nombres de los objetos equipados.
-	* 
-	* Ejemplo de uso:
-	* var equipped = await getEquip("pepe");
-		*/
-	async getEquip(usuario) {
-		const docRef = doc(DBManager.BD, "userInfo", usuario);
-		const docSnap = await getDoc(docRef);
-		let resultao = -1;
-		if (docSnap.exists()) {
-			resultao = await docSnap.get("Equip");
-		}
-		return resultao;
-	}
-
+	/** El parámetro es el nombre del usuario, 
+* en caso de error devuelve -1
+* En caso de ser correcto devuelve un map con el elemento equipado en cada psoición.
+* 
+* Ejemplo de uso:
+* var equipped = await getEquipped("pepe");
+	*/
 	async getEquipped(usuario) {
 		const docRef = doc(DBManager.BD, "userInfo", usuario);
-		const docSnap = await  getDoc(docRef);
+		const docSnap = await getDoc(docRef);
 		let equipped = ""
-		if(docSnap.exists)
-		{
+		if (docSnap.exists) {
 			equipped = await docSnap.get("Equipped")
 		}
 		return equipped
-}
-		/** El parámetro es el nombre del usuario y una lista con el nombre de los objetos equipados, 
-	* en caso de error devuelve un error
-	* En caso de ser correcto actualiza la lista de objetos equipados en la base de datos.
-	* 
-	* Ejemplo de uso:
-	* await setEquip("pepe", equipped);
-		*/
+	}
+	/** El parámetro es el nombre del usuario y una lista con el nombre de los objetos equipados, 
+* en caso de error devuelve un error
+* En caso de ser correcto actualiza el map de objetos equipados en la base de datos.
+* 
+* Ejemplo de uso:
+* await setEquip("pepe", equipped);
+	*/
 	async setEquip(usuario, equip) {
 		try {
 			updateDoc(doc(DBManager.BD, "userInfo", usuario),
@@ -483,6 +462,7 @@ export class DBManager {
 		return name
 	}
 
+
 	async setPetName(usuario, petname) {
 		try {
 			setDoc(doc(DBManager.BD, "userInfo", usuario),
@@ -509,7 +489,7 @@ export class DBManager {
 		return 1
 	}
 
-	
+
 	async getFecha(usuario) {
 		const docRef = doc(DBManager.BD, "userInfo", usuario);
 		const docSnap = await getDoc(docRef);

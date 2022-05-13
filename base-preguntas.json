@@ -6920,19 +6920,19 @@
     },
     {
         "categoria": "Entretenimiento",
-        "pregunta": "¿En qué país nació la Bauhaus?",
-        "respuesta": "Alemania",
-        "incorrecta1": "Holanda",
-        "incorrecta2": "Rusia",
-        "incorrecta3": "Estados Unidos\r"
+        "pregunta": "¿Quién es Ibai?",
+        "respuesta": "Un streamer",
+        "incorrecta1": "El presidente del Gobierno",
+        "incorrecta2": "Mi padre",
+        "incorrecta3": "Mi primo chico\r"
     },
     {
         "categoria": "Entretenimiento",
-        "pregunta": "Arroz con leche me quiero casar con una señorita de..",
-        "respuesta": "San Nicolás",
-        "incorrecta1": "San Martin",
-        "incorrecta2": "San Justo",
-        "incorrecta3": "San José\r"
+        "pregunta": "Streamer malagueño más conocido",
+        "respuesta": "IlloJuan",
+        "incorrecta1": "Ibai",
+        "incorrecta2": "Cathyvipi",
+        "incorrecta3": "Kalvyraw\r"
     },
     {
         "categoria": "Entretenimiento",
@@ -6952,27 +6952,27 @@
     },
     {
         "categoria": "Entretenimiento",
-        "pregunta": " ¿Qué personaje famoso lidera la banda llamada Nancys Rubias?",
-        "respuesta": "Mario Vaquerizo",
-        "incorrecta1": "Nacho Canut",
-        "incorrecta2": "Alaska",
-        "incorrecta3": "Nacho Vidal\r"
+        "pregunta": " Película de Marvel más taquillera",
+        "respuesta": "Avengers: Endgame",
+        "incorrecta1": "Avengers: Infinity War",
+        "incorrecta2": "Spider-man: No way home ",
+        "incorrecta3": "Batman vs Superman: Dawn of Justice\r"
     },
     {
         "categoria": "Entretenimiento",
-        "pregunta": " ¿Quién es la mascota de SEGA?",
-        "respuesta": "Sonic",
-        "incorrecta1": "Mario",
-        "incorrecta2": "Pac Man",
-        "incorrecta3": "Ryu\r"
+        "pregunta": " ¿Cómo se llama el protagonista del videojuego UNDERTALE?",
+        "respuesta": "Frisk",
+        "incorrecta1": "Sans",
+        "incorrecta2": "Flowey",
+        "incorrecta3": "Kris\r"
     },
     {
         "categoria": "Entretenimiento",
-        "pregunta": " ¿Cuántos premios Grammy ha ganado Britney Spears?",
-        "respuesta": "Uno",
-        "incorrecta1": "Dos",
-        "incorrecta2": "Tres",
-        "incorrecta3": "Ninguno\r"
+        "pregunta": " ¿Cómo se llama el protagonista de la serie Attack on Titan",
+        "respuesta": "Eren",
+        "incorrecta1": "Levi",
+        "incorrecta2": "Goku",
+        "incorrecta3": "Isagi\r"
     },
     {
         "categoria": "Entretenimiento",

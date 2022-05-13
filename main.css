@@ -35,7 +35,7 @@ img{
     padding-left: 20px;
     display: inline-block;
     border-radius: 10px;
-    font-size: 2.5vw;
+    font-size: 2vw;
     color: black;
     box-shadow: 5px 5px 10px 5px black;
     cursor: pointer;
@@ -88,9 +88,11 @@ img{
     transform: translate(-50%, -50%);
 }
 
-#roro{
+#extra{
+    font-size: 0.5vw;
     bottom: 50%;
     right: 10px;
+    opacity: 0;
 }
 
 

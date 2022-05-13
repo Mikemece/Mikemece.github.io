@@ -17,7 +17,6 @@ var face = true
 var d = true
 
 var bought = await db.getBuy(user)
-
 bought.forEach(element => {
     console.log(element)
     document.getElementById(element).classList.add("boxB")
@@ -66,7 +65,6 @@ for (let i = 0; i < items.length; i++) {
 
     }
 }
-
 
 async function buy(obj) {
     let objN = obj.id
@@ -166,7 +164,6 @@ async function eat(obj) {
     let objN = obj.id
     let precio = await db.getItemPrice(objN)
     let itemExp = await db.getItemExp(objN)
-
     if (mon >= precio && obj.className[7] == 'N') {
         obj.classList.add("boxB")
         obj.classList.remove("boxNB")
