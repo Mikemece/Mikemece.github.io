@@ -86,7 +86,7 @@ function escogerPreguntaAleatoria() {
       case 0: react = "Penoso."; break
       case 1: react = "Regulero..."; break
       case 2: react = "Aprobado raspado"; break
-      case 3: react = "¡Bien hecho!"
+      case 3: react = "¡Bien hecho!"; break
       default: react = "¡¡Perfecto, vaya máquina!!"; break
     }
     //Aquí es donde el juego se reinicia
