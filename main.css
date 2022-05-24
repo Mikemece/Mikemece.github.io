@@ -35,7 +35,7 @@ img{
     padding-left: 20px;
     display: inline-block;
     border-radius: 10px;
-    font-size: 2vw;
+    font-size: 2.7vw;
     color: black;
     box-shadow: 5px 5px 10px 5px black;
     cursor: pointer;
@@ -55,7 +55,7 @@ img{
     justify-content: center;
     top: 30px;
     right: 30px;
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin: 5px;
     padding: 10px;
     padding-right: 20px;
@@ -86,13 +86,6 @@ img{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#extra{
-    font-size: 0.5vw;
-    bottom: 50%;
-    right: 10px;
-    opacity: 0;
 }
 
 

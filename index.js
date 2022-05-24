@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(usuario);
         if(usuario == 0 || usuario == -1)
         {
-            setFormMessage(loginForm, "error", "Invalid username/password combination");
+            setFormMessage(loginForm, "error", "Usuario o contraseña incorrecto/s");
         }else
         {
             console.log("Hemos iniciado sesión en usuario: " + usuario.user + " con la contraseña: " + usuario.Password + " con un nivel de experiencia: " + usuario.EXP);
@@ -78,18 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault()
         clearInputError(petName)
         if (signupPassword.value!=confirmPassword.value){
-            setFormMessage(createAccountForm, "error", "The passwords doesn't match")
+            setFormMessage(createAccountForm, "error", "Las contraseñas no coinciden")
         }else if (petName.value==""){
-            setInputError(petName,"You have to asign your pet a name!")
+            setInputError(petName,"¡Tienes que darle un nombre a tu mascota!")
         }else{
             const isRegistered = await db.loginUser(signupUsername.value)
             if(isRegistered==-1){
                 const registeredUser = await db.registerUser(signupUsername.value, signupPassword.value, petName.value);
-                setFormMessage(loginForm, "success", "You signed up succesfully!")
+                setFormMessage(loginForm, "success", "¡Registrado exitosamente!")
                 loginForm.classList.remove("form--hidden");
                 createAccountForm.classList.add("form--hidden");
             }else{
-                setFormMessage(createAccountForm, "error", "The user already exists!")
+                setFormMessage(createAccountForm, "error", "Este usuario ya existe")
             }
         }
         
