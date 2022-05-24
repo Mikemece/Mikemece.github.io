@@ -66,12 +66,17 @@ for (let i = 0; i < items.length; i++) {
     }
 }
 
+var compra = new Audio("./audio/compra.mp3")
+var equipo = new Audio("./audio/equip.mp3")
+var come = new Audio("./audio/come.mp3")
+
 async function buy(obj) {
     let objN = obj.id
     let precio = await db.getItemPrice(objN)
     if (mon >= precio && obj.className[7] == 'N') {
         obj.classList.add("boxB")
         obj.classList.remove("boxNB")
+        compra.play()
         mon = mon - precio
         money.innerHTML = mon + "€"
         await db.setCoins(user, mon)
@@ -88,6 +93,7 @@ async function equipH(obj) {
         }
         obj.classList.add("boxSel")
         equipped.Head=obj.id
+        equipo.play()
         //equipped.splice(0, 1, obj.id)
         await db.setEquip(user, equipped)
         head = true
@@ -101,6 +107,7 @@ async function equipB(obj) {
         }
         obj.classList.add("boxSel")
         equipped.Body=obj.id
+        equipo.play()
         //equipped.splice(1, 1, obj.id)
         await db.setEquip(user, equipped)
         body = true
@@ -114,6 +121,7 @@ async function equipD(obj) {
         }
         obj.classList.add("boxSel")
         equipped.Down=obj.id
+        equipo.play()
         //equipped.splice(2, 1, obj.id)
         await db.setEquip(user, equipped)
         d = true
@@ -127,6 +135,7 @@ async function equipF(obj) {
         }
         obj.classList.add("boxSel")
         equipped.Face=obj.id
+        equipo.play()
         //equipped.splice(3, 1, obj.id)
         await db.setEquip(user, equipped)
         face = true
@@ -170,9 +179,10 @@ async function eat(obj) {
         mon = mon - precio
         exp += itemExp
         money.innerHTML = mon + "€"
+        come.play()
         await db.setCoins(user, mon)
         await db.setExp(user, exp)
-        setTimeout(() => { obj.classList.add("boxNB") }, 1000);
-        setTimeout(() => { obj.classList.remove("boxB") }, 1000);
+        setTimeout(() => { obj.classList.add("boxNB") }, 1100);
+        setTimeout(() => { obj.classList.remove("boxB") }, 1100);
     }
 }

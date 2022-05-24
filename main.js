@@ -6,11 +6,9 @@ const head = document.getElementById("Head")
 const body = document.getElementById("Body")
 const down = document.getElementById("Down")
 const face = document.getElementById("Face")
-const extra = document.getElementById("extra")
 const money = document.getElementById("money")
 const Lvl = document.getElementById("lvl")
 const Exp = document.getElementById("exp")
-
 const db = new DBManager();
 db.init();
 
@@ -18,7 +16,7 @@ db.init();
 var lvl = 0
 var initWidth = Pinwi.clientWidth
 var user = sessionStorage.getItem("username")
-var pet = sessionStorage.getItem("name")
+var pet = await db.getPetName(user)
 
 var mon = await db.getCoins(user)
 var exp = await db.getExp(user)
@@ -52,17 +50,23 @@ switch (lvl) {
 }
 
 face.addEventListener("click", pinwiFunction)
-extra.addEventListener("click", dinero)
 
-
-async function dinero() {
-    mon++
-    money.innerHTML = mon + "€"
-    await db.setCoins(user, mon)
-}
-
+var ibai = new Audio("./audio/ibai.mp3")
+var aud = new Audio("./audio/nonot.mp3")
+var sans = new Audio("./audio/sans.mp3")
+var yepa = new Audio("./audio/yepa.mp3")
 
 function pinwiFunction() {
+    if(pet.toLowerCase().localeCompare("ibai")==0){
+        ibai.play()
+    }else if(pet.toLowerCase().localeCompare("sans")==0){
+        sans.play()
+    }else if(pet.toLowerCase().localeCompare("lolito")==0){
+        yepa.play()
+    }else{
+        aud.play()
+    }
+
     let currWidth = Pinwi.clientWidth
     console.log(currWidth)
     Pinwi.style.width = (initWidth * 1.1) + "px"

@@ -13,7 +13,8 @@ let btn2 = document.getElementById("btn2")
 let btn3 = document.getElementById("btn3")
 let btn4 = document.getElementById("btn4")
 
-
+var fallo = new Audio("./audio/bonk.mp3")
+var acierto = new Audio("./audio/acierto.mp3")
 
 window.onload = async function () {
 
@@ -170,11 +171,13 @@ async function oprimir_btn(i) {
   if (posibles_respuestas[i] == pregunta.respuesta) {
     preguntas_correctas++;
     btn_correspondiente[i].style.background = "lightgreen";
+    acierto.play()
     mon++
     money.innerHTML = mon + "€"
     await db.setCoins(username, mon)
   } else {
     btn_correspondiente[i].style.background = "pink";
+    fallo.play()
   }
   for (let j = 0; j < 4; j++) {
     if (posibles_respuestas[j] == pregunta.respuesta) {
