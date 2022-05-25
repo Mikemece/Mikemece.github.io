@@ -29,7 +29,7 @@ img{
 .button{
     position: absolute;
     background-color: white;
-    margin: 5px;
+    margin: 25px;
     padding: 10px;
     padding-right: 20px;
     padding-left: 20px;
@@ -125,29 +125,29 @@ img{
 
 #info{
     position: absolute;
-    width: 5rem;
-    bottom:20px;
-    right:20px;
-    margin-right: 5%;
+    width: 5vw;
+    bottom:2vw;
+    right:3vw;
     cursor: pointer;
 }
 
 #infoCont{
     font-family: 'Arial', cursive;
     position:absolute;
-    width: 75vw;
+    left: 50%;
+    width:75vw;
     top:100%;
-    left:9rem;
     text-align: center;
     z-index: 1;
     color: aliceblue;
     line-height: 40px;
     text-shadow: 0px 0px 7px black;
-    background-color: rgba(53, 53, 53, 0.952);
+    background-color: rgba(36, 35, 35, 0.952);
     border-radius: 3%;
     font-size: 1.5vw;
-    margin: 25px;
-    padding: 50px;
+    margin-top: 25px;
+    padding: 40px;
     user-select: none;
     transition: 1000ms;
+    transform:translate(-50%, 0);
 }

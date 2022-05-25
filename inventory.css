@@ -30,7 +30,7 @@ body {
     font-size: 35px;
     border: 3px solid rgb(216, 195, 5);
     box-shadow: rgb(0, 0, 0) 0px 0px 20px;
-    width: 85%;
+    width: 85vw;
     padding: 20px;
     margin: 50px auto;
     grid-gap: 20px;
