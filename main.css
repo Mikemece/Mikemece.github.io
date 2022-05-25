@@ -107,6 +107,7 @@ img{
     color: yellow ;
     font-size: 1.5rem;
     bottom: 15px;
+    text-align: center;
     left: 50%;
     transform:translate(-50%, 0) ;
     text-shadow: 0px 0px 10px black;
@@ -124,30 +125,29 @@ img{
 
 #info{
     position: absolute;
-    justify-content: center;
-    margin: 5px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    display: flex;
-    position: absolute;
-    width:50px;
+    width: 5rem;
     bottom:20px;
     right:20px;
+    margin-right: 5%;
     cursor: pointer;
 }
 
 #infoCont{
-    position: absolute;
-    justify-content: center;
-    font-size: 1vw;
-    margin: 5px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    display: inline-block;
-    border-radius:10%;
+    font-family: 'Arial', cursive;
+    position:absolute;
+    width: 75vw;
+    top:100%;
+    left:9rem;
     text-align: center;
-    display: flex;
+    z-index: 1;
+    color: aliceblue;
+    line-height: 40px;
+    text-shadow: 0px 0px 7px black;
+    background-color: rgba(53, 53, 53, 0.952);
+    border-radius: 3%;
+    font-size: 1.5vw;
+    margin: 25px;
+    padding: 50px;
     user-select: none;
+    transition: 1000ms;
 }
