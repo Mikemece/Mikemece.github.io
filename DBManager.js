@@ -115,12 +115,6 @@ export class DBManager {
 		try {
 			setDoc(doc(DBManager.BD, "userInfo", usuario),
 				{
-					/*Exp: 0,
-					Password: contra,
-					coins: 0,
-					petName: petname,
-					user: usuario,
-					Equipped:*/
 					Exp: 0,
 					Password: contra,
 					Buy: [],
@@ -227,33 +221,6 @@ export class DBManager {
 		return 1
 	}
 
-	/** El parámetro es el nombre de usuario, se asume que es correcto.
- * Igualmente en caso de error devuelve -1
- * En caso de ser correcto devuelve un array de Strings con los nombres de los objetos equipados.
- * 
- * Ejemplo de uso:
- * var equipados = await getItemsEquipped("usuario1");
-	 */
-	async getItemsEquipped(usuario) {
-		const docRef = doc(DBManager.BD, "userInfo", usuario);
-		const docSnap = await getDoc(docRef);
-		let resultao = -1;
-		if (docSnap.exists()) {
-			resultao = await docSnap.get("Equipped");
-			let arrayresultao = [];
-			//console.log(resultao);
-			for (let i = 0; i < Object.getOwnPropertyNames(resultao).length; i++) {
-				//console.log(resultao);
-				if (resultao[Object.getOwnPropertyNames(resultao)[i]]) {
-					arrayresultao.push(Object.getOwnPropertyNames(resultao)[i]);
-				}
-
-			}
-			resultao = arrayresultao;
-		}
-		return resultao;
-	}
-
 	/** El parámetro es el nombre del item, 
 	* en caso de error devuelve -1
 	* En caso de ser correcto devuelve el valor numérico del precio.
@@ -289,73 +256,6 @@ export class DBManager {
 	}
 
 
-	/** Requiere de un parámetro, nombreItem, en el caso de no ser correcto devuelve -1
-	 * 
-	 * Cuando es correcto devuelve un objeto con todos los parámetros del Item especificado, 
-	 * cambia su estructura dependiendo de si es cosmético o no
-	 * es la propiedad skin, en el caso de true es cosmético
-	 * 
-	 * En caso de ser cosmético sus propiedades son:
-	 * Icon, ImageIG, LvlUnlocked, Name, Price, XP y skin
-	 * 
-	 * En el caso de ser comestible sus propiedades son:
-	 * Icon, LvlUnlocked, Name, Price, XP, skin
-	 * 
-	 * Para llamar a las propiedades por ejemplo voy a usar skin, pero con todos es igual. Se llama tal que así:
-	 * var objeto = await getItem(nombreItem);
-	 * objeto.skin;
-	 * ó también se puede llamar así:
-	 * objeto['skin'];
-	 * 
-	 * igual con el resto de parametros 
-	 * 
-	 */
-	async getItem(nombreItem) {
-		const docRef = doc(DBManager.BD, "shop", nombreItem);
-		const docSnap = await getDoc(docRef);
-		let resultao = -1;
-		if (docSnap.exists()) {
-			let cosmetico = await docSnap.get("skin");
-			if (cosmetico) {
-				resultao =
-				{
-					Icon: await docSnap.get("Icon"),
-					ImageIG: await docSnap.get("ImageIG"),
-					LvlUnlocked: await docSnap.get("LvlUnlocked"),
-					Name: await docSnap.get("Name"),
-					Price: await docSnap.get("Price"),
-					XP: await docSnap.get("XP"),
-					skin: await docSnap.get("skin")
-				}
-			} else {
-				resultao =
-				{
-					Icon: await docSnap.get("Icon"),
-					LvlUnlocked: await docSnap.get("LvlUnlocked"),
-					Name: await docSnap.get("Name"),
-					Price: await docSnap.get("Price"),
-					XP: await docSnap.get("XP"),
-					skin: await docSnap.get("skin")
-				}
-			}
-		}
-		return resultao;
-	}
-
-	/** No requiere de ningún parametro, simplemente devuelve un array con los nombres de todos los objetos que existen en el juego.
-	 * 
-	 * No hace ninguna comprobación porque la única manera en la que esto estaría vacío sería si la BD se corrompiese.
-	 */
-	async getShop() {
-		const CollectionSnapShot = await getDocs(collection(DBManager.BD, "shop"));
-		let resultao = [];
-		CollectionSnapShot.forEach((doc) => {
-			//console.log(doc.id, " => ", doc.data());
-			resultao.push(doc.id);
-		});
-		return resultao;
-
-	}
 
 
 	/** El parámetro es el nombre del usuario, 
@@ -429,22 +329,6 @@ export class DBManager {
 		return 1
 	}
 
-	/** El parámetro es el nombre de usuario, se asume que es correcto.
- * Igualmente en caso de error devuelve -1
- * En caso de ser correcto devuelve el map de los objetos que posee el usuario con un booleano que indica si lo tiene equipado.
- * 
- * Ejemplo de uso:
- * var experiencia = await getExp("usuario1");
-	 */
-	async getInventory(usuario) {
-		const docRef = doc(DBManager.BD, "userInfo", usuario);
-		const docSnap = await getDoc(docRef);
-		let resultao = -1;
-		if (docSnap.exists()) {
-			resultao = await docSnap.get("Equipped");
-		}
-		return resultao;
-	}
 
 	/*
 	Esta función devuelve el nombre de la mascota del usuario pasado como parámetro.

@@ -9,7 +9,11 @@ const face = document.getElementById("Face")
 const money = document.getElementById("money")
 const Lvl = document.getElementById("lvl")
 const Exp = document.getElementById("exp")
+const info = document.getElementById("info")
+const infoCont = document.getElementById("infoCont")
 const db = new DBManager();
+
+
 db.init();
 
 
@@ -50,6 +54,7 @@ switch (lvl) {
 }
 
 face.addEventListener("click", pinwiFunction)
+info.addEventListener("click", showInfo)
 
 var ibai = new Audio("./audio/ibai.mp3")
 var aud = new Audio("./audio/nonot.mp3")
@@ -80,4 +85,9 @@ function pinwiFunction() {
     setTimeout(() => { down.style.width = initWidth + "px"; }, 150);
     setTimeout(() => { face.style.width = initWidth + "px"; }, 150);
     console.log("BOING")
+}
+
+var cl = false
+function showInfo(){
+    
 }
