@@ -11,6 +11,7 @@ const Lvl = document.getElementById("lvl")
 const Exp = document.getElementById("exp")
 const info = document.getElementById("info")
 const infoCont = document.getElementById("infoCont")
+const gato = document.getElementById("elgato")
 const db = new DBManager();
 
 
@@ -55,6 +56,7 @@ switch (lvl) {
 
 face.addEventListener("click", pinwiFunction)
 info.addEventListener("click", showInfo)
+gato.addEventListener("click", gatoFunc)
 
 var ibai = new Audio("./audio/ibai.mp3")
 var aud = new Audio("./audio/nonot.mp3")
@@ -98,4 +100,10 @@ function showInfo(){
         cl=false
     }
     
+}
+
+var elgato = new Audio("./audio/elgato.mp3")
+
+function gatoFunc(){
+    elgato.play();
 }

@@ -11,10 +11,11 @@ img{
 }
 
 .container{
+    position:relative;
     box-shadow: 0 0 15px 5px white;
     background-image: url("https://64.media.tumblr.com/528b3120a1cbc2cb0d78e0f05fd0415b/f6ef5d4f940e6e2f-5d/s1280x1920/fa0e4b45ecea598941d5d7eef658a8907b0e4ef4.gifv");
     background-size: cover;
-    background-position: center;
+    background-position:center;
     top: 20px;
     left: 20px;
     right: 20px;
@@ -100,6 +101,7 @@ img{
     transform:translate(-50%, 0) ;
     transition: top 0.25s;
     text-shadow: 0px 0px 15px black;
+    user-select: none;
 }
 
 #exp{
@@ -111,6 +113,7 @@ img{
     left: 50%;
     transform:translate(-50%, 0) ;
     text-shadow: 0px 0px 10px black;
+    user-select: none;
 }
 
 #lvl{
@@ -121,6 +124,7 @@ img{
     left: 50%;
     transform:translate(-50%, 0) ;
     text-shadow: 0px 0px 10px black;
+    user-select: none;
 }
 
 #info{
@@ -150,4 +154,16 @@ img{
     user-select: none;
     transition: 1000ms;
     transform:translate(-50%, 0);
+}
+
+#elgato{
+    position:absolute;
+    justify-content: center;
+    width: 8.5vw;
+    height: 9vw;
+    right: 19.8vw;
+    top: 2.3vw;
+    padding: 10px;
+    /* background-color: rgba(229, 255, 0, 0.486); */
+    cursor: pointer;
 }
