@@ -66,9 +66,10 @@ for (let i = 0; i < items.length; i++) {
     }
 }
 
-var compra = new Audio("./audio/compra.mp3")
-var equipo = new Audio("./audio/equip.mp3")
-var come = new Audio("./audio/come.mp3")
+var compra = new Audio("../audio/compra.mp3")
+var equipo = new Audio("../audio/equip.mp3")
+var come = new Audio("../audio/come.mp3")
+var sable = new Audio("../audio/laser.mp3")
 
 async function buy(obj) {
     let objN = obj.id
@@ -93,7 +94,11 @@ async function equipH(obj) {
         }
         obj.classList.add("boxSel")
         equipped.Head=obj.id
-        equipo.play()
+        if(obj.id == "darthVader"){
+            sable.play()
+        }else{
+            equipo.play()
+        }
         //equipped.splice(0, 1, obj.id)
         await db.setEquip(user, equipped)
         head = true

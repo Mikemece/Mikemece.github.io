@@ -40,32 +40,35 @@ console.log(equipped)
 
 for (var Parte in equipped) {
     if (equipped[Parte] == "b1" || equipped[Parte] == "b2" || equipped[Parte] == "b3" || equipped[Parte] == "b4") {
-        document.getElementById(Parte).src = "./ropa/vacio.png"
+        document.getElementById(Parte).src = "../ropa/vacio.png"
     } else {
-        document.getElementById(Parte).src = "./ropa/" + equipped[Parte] + "F.png"
+        document.getElementById(Parte).src = "../ropa/" + equipped[Parte] + "F.png"
     }
 }
 
 switch (lvl) {
     case 0: break
-    case 1: Pinwi.src = "./skin/huevoRotoF.png"; break;
-    case 2: Pinwi.src = "./skin/huevoRoto2F.png"; break;
+    case 1: Pinwi.src = "../skin/huevoRotoF.png"; break;
+    case 2: Pinwi.src = "../skin/huevoRoto2F.png"; break;
     case 3:
-    case 4: Pinwi.src = "./skin/pinwiBBF.png"; break;
-    default: Pinwi.src = "./skin/pinwiAdulF.png"; break;
+    case 4: Pinwi.src = "../skin/pinwiBBF.png"; break;
+    default: Pinwi.src = "../skin/pinwiAdulF.png"; break;
 }
 
 face.addEventListener("click", pinwiFunction)
 info.addEventListener("click", showInfo)
 gato.addEventListener("click", gatoFunc)
 
-var ibai = new Audio("./audio/ibai.mp3")
-var aud = new Audio("./audio/nonot.mp3")
-var sans = new Audio("./audio/sans.mp3")
-var yepa = new Audio("./audio/yepa.mp3")
+var ibai = new Audio("../audio/ibai.mp3")
+var aud = new Audio("../audio/nonot.mp3")
+var sans = new Audio("../audio/sans.mp3")
+var yepa = new Audio("../audio/yepa.mp3")
+var vader = new Audio("../audio/vader.mp3")
 
 function pinwiFunction() {
-    if(pet.toLowerCase().localeCompare("ibai")==0){
+    if(equipped["Head"] == "darthVader"){
+        vader.play()
+    }else if(pet.toLowerCase().localeCompare("ibai")==0){
         ibai.play()
     }else if(pet.toLowerCase().localeCompare("sans")==0){
         sans.play()
@@ -103,7 +106,7 @@ function showInfo(){
     
 }
 
-var elgato = new Audio("./audio/elgato.mp3")
+var elgato = new Audio("../audio/elgato.mp3")
 
 function gatoFunc(){
     elgato.play();

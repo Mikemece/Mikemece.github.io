@@ -13,8 +13,8 @@ let btn2 = document.getElementById("btn2")
 let btn3 = document.getElementById("btn3")
 let btn4 = document.getElementById("btn4")
 
-var fallo = new Audio("./audio/bonk.mp3")
-var acierto = new Audio("./audio/acierto.mp3")
+var fallo = new Audio("../audio/bonk.mp3")
+var acierto = new Audio("../audio/acierto.mp3")
 
 window.onload = async function () {
 
@@ -33,12 +33,12 @@ window.onload = async function () {
       confirmButtonText: "Vale :(",
     })
       .then(() => {
-        document.location.href = "./main.html";
+        document.location.href = "../html/main.html";
       });
   } else {
 
     await db.setFecha(username, date.toLocaleDateString())
-    base_preguntas = readText("./base-preguntas.json");
+    base_preguntas = readText("../base-preguntas.json");
     interprete_bp = JSON.parse(base_preguntas);
     escogerPreguntaAleatoria();
 
@@ -100,7 +100,7 @@ function escogerPreguntaAleatoria() {
         icon: "success",
         confirmButtonText: react
       }).then(() => {
-        document.location.href = "./main.html";
+        document.location.href = "../html/main.html";
       });
     }
     npreguntas = [];

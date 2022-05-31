@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://64.media.tumblr.com/528b3120a1cbc2cb0d78e0f05fd0415b/f6ef5d4f940e6e2f-5d/s1280x1920/fa0e4b45ecea598941d5d7eef658a8907b0e4ef4.gifv");
+    backdrop-filter: blur(5px);
+    background-size: cover;
+    font-family: 'Press Start 2P', cursive;
+
+}
+
+/* para ponerle un fade negro al fondo */
+.oscuro {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    position: absolute;
+    opacity: 0.4;
+    z-index: -5;
+}
+
+/* la caja amarilla que ordena las cajitas chicas */
+.grid-container {
+    display: grid;
+    font-size: 35px;
+    border: 3px solid rgb(216, 195, 5);
+    box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    width: 85vw;
+    padding: 20px;
+    margin: 50px auto;
+    grid-gap: 20px;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+/* botones de compra */
+.box{
+    display: flex;
+    justify-content: center;
+    color: yellow;
+    align-content: center;
+    flex-direction: column;
+    border: 2px solid white;
+    background-color: rgba(254, 254, 254, 0.183);
+    width: 10vw;
+    height: 10vw;
+    text-align: center;
+    transition: box-shadow 0.5s, background-color 0.5s;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+/* imagenes */
+.box img {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    left: 0%;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.box:hover {
+    box-shadow: whitesmoke 0px 0px 10px 10px;
+}
+
+.boxNB:hover .prize {
+    opacity: 1;
+
+}
+.boxNB:hover img {
+    opacity: 0.5    ;
+    filter: grayscale(0%);
+}
+
+/* imagenes */
+.boxB img{
+    filter: grayscale(0%);
+}
+
+.boxNB img{
+    filter: grayscale(100%);
+}
+
+.barrier img{
+    top:0%;
+    filter: grayscale(0%);
+}
+
+.boxSel{
+    box-shadow: whitesmoke 0px 0px 10px 10px;
+}
+
+/* la salida */
+.back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    width: 10px;
+}
+
+/* texto del precio */
+.prize {
+    font-family: 'Press Start 2P', cursive;
+    position:relative;
+
+    /*  width: 1vw; */
+    font-size:3vw;
+    top: -45%;  
+    right:-0.5vw; 
+    color: gold;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#money{
+    position: absolute;
+    justify-content: center;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5vw;
+    margin: 5px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: inline-block;
+    box-shadow: 0px 0px 10px 5px rgb(22, 71, 3);
+    border-radius:50%;
+    text-align: center;
+    display: flex;
+    color: rgb(38, 124, 4);
+    background-color: rgba(202, 241, 191, 0.904);
+    user-select: none;
+}
+
+
+
