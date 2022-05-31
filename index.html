@@ -9,7 +9,7 @@
 	<title>Inicio de sesión / Registro</title>
 	<link rel="icon" href="../iconos/icono_black.jpeg">
     <script type="module"> //Ejemplo de integración de la bbdd con codigo usado para probar la bbdd
-        import {DBManager} from "../js/DBManager.js";
+        import {DBManager} from "./js/DBManager.js";
         const db = new DBManager();
         db.init();
     </script>
@@ -57,5 +57,5 @@
             </p>
         </form>
     </div>
-    <script src="../js/index.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
 </body>

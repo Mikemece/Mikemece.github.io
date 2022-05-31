@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 sessionStorage.setItem("name", petName)
             }
             sessionStorage.setItem("username", loginUsername.value)
-            window.location.href = "../html/main.html";
+            window.location.href = "../main.html";
         }
     });
 

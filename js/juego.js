@@ -33,7 +33,7 @@ window.onload = async function () {
       confirmButtonText: "Vale :(",
     })
       .then(() => {
-        document.location.href = "../html/main.html";
+        document.location.href = "../main.html";
       });
   } else {
 
@@ -100,7 +100,7 @@ function escogerPreguntaAleatoria() {
         icon: "success",
         confirmButtonText: react
       }).then(() => {
-        document.location.href = "../html/main.html";
+        document.location.href = "../main.html";
       });
     }
     npreguntas = [];
