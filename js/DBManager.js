@@ -121,7 +121,6 @@ export class DBManager {
 					coins: 0,
 					petName: petname,
 					user: usuario,
-					Equip: [],
 					Equipped: {
 						Head: "b1",
 						Body: "b2",
