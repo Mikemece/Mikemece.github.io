@@ -50,8 +50,7 @@ switch (lvl) {
     case 0: break
     case 1: Pinwi.src = "../skin/huevoRotoF.png"; break;
     case 2: Pinwi.src = "../skin/huevoRoto2F.png"; break;
-    case 3:
-    case 4: Pinwi.src = "../skin/pinwiBBF.png"; break;
+    case 3: Pinwi.src = "../skin/pinwiBBF.png"; break;
     default: Pinwi.src = "../skin/pinwiAdulF.png"; break;
 }
 
